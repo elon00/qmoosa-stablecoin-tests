@@ -51,7 +51,11 @@ jobs:
 
       - name: Install dependencies in tests repository
         working-directory: qmoosa-stablecoin-tests
-        run: npm install
+        run: |
+          npm install
+          tar -xzf packages/qmoosa-stablecoin-protocol-1.0.0.tgz -C node_modules/@qmoosa/stablecoin-protocol --strip-components=1
+          tar -xzf packages/qmoosa-stablecoin-engine-1.0.0.tgz -C node_modules/@qmoosa/stablecoin-engine --strip-components=1
+          tar -xzf packages/qmoosa-stablecoin-sdk-1.0.0.tgz -C node_modules/@qmoosa/stablecoin-sdk --strip-components=1
 
       - name: Run Source & Package Integrity Gate (Archive Mode)
         working-directory: qmoosa-stablecoin-tests
