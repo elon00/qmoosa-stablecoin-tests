@@ -1,0 +1,78 @@
+name: Full-Spectrum Stablecoin Reality Gates & Invariant CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  reality-gates:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout tests repository
+        uses: actions/checkout@v4
+        with:
+          path: qmoosa-stablecoin-tests
+
+      - name: Checkout protocol repository (Pinned Commit)
+        uses: actions/checkout@v4
+        with:
+          repository: elon00/qmoosa-stablecoin-protocol
+          ref: 7034a8328f7ab1380a68537e2323450754684765
+          path: qmoosa-stablecoin-protocol
+
+      - name: Checkout engine repository (Pinned Commit)
+        uses: actions/checkout@v4
+        with:
+          repository: elon00/qmoosa-stablecoin-engine
+          ref: 4cf886b98863d8e1b0b72c9ad8b531fd378840f8
+          path: qmoosa-stablecoin-engine
+
+      - name: Checkout sdk repository (Pinned Commit)
+        uses: actions/checkout@v4
+        with:
+          repository: elon00/qmoosa-stablecoin-sdk
+          ref: bb42143bb04463ab754ed42014ad8e208579f08b
+          path: qmoosa-stablecoin-sdk
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+          cache-dependency-path: qmoosa-stablecoin-tests/package.json
+
+      - name: Install dependencies in sibling repositories
+        run: |
+          npm ci --prefix qmoosa-stablecoin-protocol
+          npm ci --prefix qmoosa-stablecoin-engine
+          npm ci --prefix qmoosa-stablecoin-sdk
+
+      - name: Install dependencies in tests repository
+        working-directory: qmoosa-stablecoin-tests
+        run: npm install
+
+      - name: Run Source & Package Integrity Gate (Archive Mode)
+        working-directory: qmoosa-stablecoin-tests
+        run: npm run verify:archive
+
+      - name: Run Strict Current-HEAD Alignment Gate
+        working-directory: qmoosa-stablecoin-tests
+        run: npm run verify:current-head
+
+      - name: Run Hermetic Source Derivation & Canonical Artifact Comparison Gate
+        working-directory: qmoosa-stablecoin-tests
+        run: npm run verify:source
+
+      - name: Run Integration Tests
+        working-directory: qmoosa-stablecoin-tests
+        run: npm run test:integration
+
+      - name: Run Adversarial Negative Control Suite
+        working-directory: qmoosa-stablecoin-tests
+        run: npm run test:negative
+
+      - name: Static Lint Check
+        working-directory: qmoosa-stablecoin-tests
+        run: npm run lint

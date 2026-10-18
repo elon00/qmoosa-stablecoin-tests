@@ -1,0 +1,31 @@
+{
+  "name": "@qmoosa/stablecoin-tests",
+  "version": "1.0.0",
+  "description": "QMOOSA Stablecoin Tests — Multi-Repo Reality Gates, Invariant Verification & Adversarial Suite",
+  "type": "module",
+  "scripts": {
+    "test:integrity": "node scripts/verify-source-integrity.mjs",
+    "test:integration": "node --test tests/integration.test.mjs",
+    "test:negative": "node --test tests/negative-control.test.mjs",
+    "verify:archive": "node scripts/verify-source-integrity.mjs --mode=archive",
+    "verify:source": "node scripts/verify-source-integrity.mjs --mode=source",
+    "verify:current-head": "node scripts/verify-source-integrity.mjs --mode=current-head",
+    "test": "npm run test:integrity && npm run test:integration && npm run test:negative",
+    "lint": "node --check tests/integration.test.mjs tests/negative-control.test.mjs scripts/verify-source-integrity.mjs"
+  },
+  "dependencies": {
+    "@qmoosa/stablecoin-protocol": "file:packages/qmoosa-stablecoin-protocol-1.0.0.tgz",
+    "@qmoosa/stablecoin-engine": "file:packages/qmoosa-stablecoin-engine-1.0.0.tgz",
+    "@qmoosa/stablecoin-sdk": "file:packages/qmoosa-stablecoin-sdk-1.0.0.tgz"
+  },
+  "keywords": [
+    "qmoosa",
+    "stablecoin",
+    "tests",
+    "reality-gates",
+    "integration",
+    "adversarial"
+  ],
+  "author": "elon00",
+  "license": "MIT"
+}
