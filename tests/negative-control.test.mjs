@@ -157,3 +157,31 @@ test("Negative Control 7: Deliberate provenance tampering causes verify:archive 
   }
 });
 
+test("Negative Control 8: Stale oracle timestamp and unapproved deviation fail closed", () => {
+  const { engine } = setupAdversarialSystem();
+  const staleTime = Math.floor(Date.now() / 1000) - 4000;
+
+  assert.throws(
+    () => engine.setOraclePriceDirect("WETH", 3200n * WAD, staleTime),
+    /ORACLE_PRICE_STALE/
+  );
+
+  assert.throws(
+    () => engine.setOraclePriceDirect("WETH", 6000n * WAD), // 100% surge > 50% max deviation
+    /PRICE_DEVIATION_EXCEEDED/
+  );
+});
+
+test("Negative Control 9: Bad debt deficit recorded upon severe underwater shortfall liquidation", () => {
+  const { engine, alice, attacker } = setupAdversarialSystem();
+  const vault = engine.openVault(alice, "WETH");
+  engine.depositCollateral(vault.vaultId, alice, 1n * WAD); // 1 ETH
+  engine.mintStablecoin(vault.vaultId, alice, 1_500n * WAD); // $1500 debt
+
+  // Crash price to $500/ETH
+  engine.overrideOraclePriceDirect("WETH", 500n * WAD);
+
+  // Attacker liquidates 1500 QUSD debt
+  engine.liquidateVault(vault.vaultId, attacker, 1_500n * WAD);
+  assert.ok(engine.getProtocolBadDebt() > 0n);
+});

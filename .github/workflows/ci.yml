@@ -19,14 +19,14 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: elon00/qmoosa-stablecoin-protocol
-          ref: 7034a8328f7ab1380a68537e2323450754684765
+          ref: bcb2d7af559f6abd5117ab419bfa582e3f4b681c
           path: qmoosa-stablecoin-protocol
 
       - name: Checkout engine repository (Pinned Commit)
         uses: actions/checkout@v4
         with:
           repository: elon00/qmoosa-stablecoin-engine
-          ref: 4cf886b98863d8e1b0b72c9ad8b531fd378840f8
+          ref: 0398d7745e6286860581f3b91a0a7c5636d938a7
           path: qmoosa-stablecoin-engine
 
       - name: Checkout sdk repository (Pinned Commit)
