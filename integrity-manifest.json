@@ -1,30 +1,30 @@
 {
-  "mission": "QMOOSA-STABLECOIN-01",
-  "generatedAt": "2026-10-18T15:20:00Z",
-  "packages": [
-    {
-      "name": "@qmoosa/stablecoin-protocol",
-      "version": "1.0.0",
-      "repository": "elon00/qmoosa-stablecoin-protocol",
-      "sourceCommit": "bcb2d7af559f6abd5117ab419bfa582e3f4b681c",
-      "archivePath": "packages/qmoosa-stablecoin-protocol-1.0.0.tgz",
-      "sha256": "3abd5ca3a20c6e15579c0c540ffcd189011e09ac14e1ace5951460394d7579c3"
-    },
-    {
-      "name": "@qmoosa/stablecoin-engine",
-      "version": "1.0.0",
-      "repository": "elon00/qmoosa-stablecoin-engine",
-      "sourceCommit": "0398d7745e6286860581f3b91a0a7c5636d938a7",
-      "archivePath": "packages/qmoosa-stablecoin-engine-1.0.0.tgz",
-      "sha256": "1378f545c3bf19700b767e41b0a6a8bf1b09a66ee80fabd2391b64f532d35e18"
-    },
-    {
-      "name": "@qmoosa/stablecoin-sdk",
-      "version": "1.0.0",
-      "repository": "elon00/qmoosa-stablecoin-sdk",
-      "sourceCommit": "bb42143bb04463ab754ed42014ad8e208579f08b",
-      "archivePath": "packages/qmoosa-stablecoin-sdk-1.0.0.tgz",
-      "sha256": "bed0a4bc0c10f64a8a93aa533f039b25a44f5bb21dfdfd3da7737d1a21678d0a"
-    }
-  ]
+    "mission":  "QMOOSA-STABLECOIN-01",
+    "generatedAt":  "2026-10-18T15:20:00Z",
+    "packages":  [
+                     {
+                         "name":  "@qmoosa/stablecoin-protocol",
+                         "version":  "1.0.0",
+                         "repository":  "elon00/qmoosa-stablecoin-protocol",
+                         "sourceCommit":  "bcb2d7af559f6abd5117ab419bfa582e3f4b681c",
+                         "archivePath":  "packages/qmoosa-stablecoin-protocol-1.0.0.tgz",
+                         "sha256":  "3abd5ca3a20c6e15579c0c540ffcd189011e09ac14e1ace5951460394d7579c3"
+                     },
+                     {
+                         "name":  "@qmoosa/stablecoin-engine",
+                         "version":  "1.0.0",
+                         "repository":  "elon00/qmoosa-stablecoin-engine",
+                         "sourceCommit":  "0398d7745e6286860581f3b91a0a7c5636d938a7",
+                         "archivePath":  "packages/qmoosa-stablecoin-engine-1.0.0.tgz",
+                         "sha256":  "1378f545c3bf19700b767e41b0a6a8bf1b09a66ee80fabd2391b64f532d35e18"
+                     },
+                     {
+                         "name":  "@qmoosa/stablecoin-sdk",
+                         "version":  "1.0.0",
+                         "repository":  "elon00/qmoosa-stablecoin-sdk",
+                         "sourceCommit":  "bb42143bb04463ab754ed42014ad8e208579f08b",
+                         "archivePath":  "packages/qmoosa-stablecoin-sdk-1.0.0.tgz",
+                         "sha256":  "bed0a4bc0c10f64a8a93aa533f039b25a44f5bb21dfdfd3da7737d1a21678d0a"
+                     }
+                 ]
 }
