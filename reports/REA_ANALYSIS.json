@@ -1,50 +1,5 @@
 {
-  "engine": "REA_Reverse_Engineer_Anything",
-  "status": "STRUCTURE_RECONSTRUCTED",
-  "analyzed_files": 14,
-  "manifest": {
-    "integrity-manifest.json": {
-      "bytes": 1676
-    },
-    "package-lock.json": {
-      "bytes": 1442
-    },
-    "package.json": {
-      "bytes": 1358
-    },
-    "packages\\qmoosa-stablecoin-engine-1.0.0.tgz": {
-      "bytes": 14683
-    },
-    "packages\\qmoosa-stablecoin-protocol-1.0.0.tgz": {
-      "bytes": 148310
-    },
-    "packages\\qmoosa-stablecoin-sdk-1.0.0.tgz": {
-      "bytes": 5963
-    },
-    "scripts\\rea_inspector.py": {
-      "bytes": 1485
-    },
-    "scripts\\rsi_engine.py": {
-      "bytes": 2039
-    },
-    "scripts\\verify-source-integrity.mjs": {
-      "bytes": 8631
-    },
-    "tests\\integration.test.mjs": {
-      "bytes": 4670
-    },
-    "tests\\negative-control.test.mjs": {
-      "bytes": 6619
-    },
-    "tests\\reality_check_harness.py": {
-      "bytes": 1250
-    },
-    ".github\\workflows\\ci.yml": {
-      "bytes": 2965
-    },
-    ".github\\workflows\\qmoosa-rsi-rea-sync.yml": {
-      "bytes": 531
-    }
-  },
-  "timestamp": 1794026382
+  "engine": "REA_Inspector",
+  "timestamp": 1794247251,
+  "total_files": 17
 }
