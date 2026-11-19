@@ -11,26 +11,26 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout tests repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           path: qmoosa-stablecoin-tests
 
       - name: Checkout protocol repository (Pinned Commit)
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           repository: elon00/qmoosa-stablecoin-protocol
           ref: bcb2d7af559f6abd5117ab419bfa582e3f4b681c
           path: qmoosa-stablecoin-protocol
 
       - name: Checkout engine repository (Pinned Commit)
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           repository: elon00/qmoosa-stablecoin-engine
           ref: 0398d7745e6286860581f3b91a0a7c5636d938a7
           path: qmoosa-stablecoin-engine
 
       - name: Checkout sdk repository (Pinned Commit)
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           repository: elon00/qmoosa-stablecoin-sdk
           ref: bb42143bb04463ab754ed42014ad8e208579f08b
